@@ -22,21 +22,41 @@ class Cursor {
     Screen.setBackgroundColor(this.row, this.col, this.cursorColor);
   }
 
-  up() {
-    // Move cursor up
+  // helper function for resetting and setting background color on each movement
+  movementHelper = (directions) => {
+    Screen.render();
+    this.resetBackgroundColor();
+    directions == "up" ? this.row-- 
+    : directions == "down" ? this.row++
+    : directions == "left" ? this.col--
+    : this.col++;
+    this.setBackgroundColor();
+    Screen.render();
+  }
+  up = () => {
+    if (this.row > 0) {
+      this.movementHelper("up");
+    }
   }
 
-  down() {
-    // Move cursor down
+  down = () => {
+    if (this.row < 2) {
+      this.movementHelper("down");
+    }
   }
 
-  left() {
-    // Move cursor left
+  left = () => {
+    if (this.col > 0) {
+      this.movementHelper("left");
+    }
   }
 
-  right() {
-    // Move cursor right
+  right = () => {
+    if (this.col < 2) {
+      this.movementHelper("right");
+    }
   }
+
 
 }
 
