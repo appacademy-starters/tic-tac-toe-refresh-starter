@@ -11,7 +11,6 @@ class Cursor {
 
     this.gridColor = 'black';
     this.cursorColor = 'yellow';
-
   }
 
   resetBackgroundColor() {
@@ -23,19 +22,35 @@ class Cursor {
   }
 
   up() {
-    // Move cursor up
+    if (this.row === 0) {
+      return `Cannot move there`
+    } else {
+      this.row -= 1
+    }
   }
 
   down() {
-    // Move cursor down
+    if (this.row === this.numRows - 1) {
+      return 'Cannot move there'
+    } else {
+      this.row += 1
+    }
   }
 
   left() {
-    // Move cursor left
+    if (this.col === 0) {
+      return 'Cannot move there'
+    } else {
+      this.col-= 1
+    }
   }
 
   right() {
-    // Move cursor right
+    if (this.col === this.numCols - 1) {
+      return "Cannot move there"
+    } else {
+      this.col += 1
+    }
   }
 
 }
