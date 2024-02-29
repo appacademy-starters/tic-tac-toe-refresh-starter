@@ -23,13 +23,8 @@ class TTT {
     Screen.render();
   }
 
-  // Remove this
-  static testCommand() {
-    console.log("TEST COMMAND");
-  }
-
   static checkWin(grid) {
-
+    if (this.grid)
     // Return 'X' if player X wins
     // Return 'O' if player O wins
     // Return 'T' if the game is a tie
